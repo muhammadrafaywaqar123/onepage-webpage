@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create – Creative Agency Template</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,900|Open+Sans:400,600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Open Sans', sans-serif; }
+    .navbar { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.03);}
+    .navbar-brand { font-family: 'Montserrat', sans-serif; font-size: 2rem; letter-spacing: 2px; }
+    .nav-link { font-weight: 600; margin-left: 10px; }
+    .nav-link.active, .nav-link:hover { color: #ff5e14 !important; }
+    .hero {
+      background: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat;
+      padding: 140px 0 120px 0;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+    .hero .lead {
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+    .btn-primary {
+      background: #ff5e14;
+      border: none;
+      font-weight: 700;
+      padding: 12px 36px;
+      border-radius: 30px;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(255,94,20,0.15);
+    }
+    .btn-primary:hover {
+      background: #e14d0b;
+      box-shadow: 0 4px 16px rgba(255,94,20,0.25);
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+      color: #222;
+      letter-spacing: 1px;
+    }
+    /* Features */
+    .feature-img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 3px solid #ff5e14;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .feature-img:hover {
+      transform: scale(1.08) rotate(-2deg);
+    }
+    /* About */
+    .about-section {
+      background: #f8f9fa;
+      padding: 80px 0;
+    }
+    .about-img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .about-img:hover {
+      transform: scale(1.03);
+    }
+    .about-content h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 20px;
+    }
+    .about-content p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    /* Services */
+    .service-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      padding: 40px 25px;
+      margin-bottom: 30px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-bottom: 3px solid #ff5e14;
+    }
+    .service-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      border-bottom: 3px solid #222;
+    }
+    .service-icon {
+      font-size: 2.5rem;
+      color: #ff5e14;
+      margin-bottom: 18px;
+    }
+    /* Portfolio */
+    .portfolio-section {
+      background: #f8f9fa;
+      padding: 80px 0;
+    }
+    .portfolio-img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    .portfolio-img:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+    }
+    .portfolio-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 5px;
+    }
+    .portfolio-cat {
+      color: #ff5e14;
+      font-size: 0.95rem;
+    }
+    /* Testimonials */
+    .testimonial-section {
+      background: #fff;
+      padding: 80px 0;
+    }
+    .testimonial-card {
+      background: #f8f9fa;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      padding: 40px 30px 30px 30px;
+      margin: 0 10px;
+      text-align: center;
+      min-height: 320px;
+      position: relative;
+    }
+    .testimonial-img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 18px;
+      border: 3px solid #ff5e14;
+    }
+    .testimonial-name {
+      font-weight: 700;
+      color: #222;
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+    .testimonial-role {
+      color: #ff5e14;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+    .testimonial-quote {
+      font-style: italic;
+      color: #555;
+      font-size: 1.05rem;
+    }
+    /* Blog */
+    .blog-section {
+      background: #fff;
+      padding: 80px 0;
+    }
+    .blog-card {
+      background: #f8f9fa;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      overflow: hidden;
+      margin-bottom: 30px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .blog-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    .blog-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .blog-content {
+      padding: 25px 20px 20px 20px;
+    }
+    .blog-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 8px;
+    }
+    .blog-meta {
+      font-size: 0.95rem;
+      color: #ff5e14;
+      margin-bottom: 10px;
+    }
+    /* Contact */
+    .contact-section {
+      background: #f8f9fa;
+      padding: 80px 0;
+    }
+    .contact-form {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      padding: 40px 30px;
+    }
+    .form-control:focus {
+      border-color: #ff5e14;
+      box-shadow: 0 0 0 0.2rem rgba(255,94,20,0.15);
+    }
+    /* Footer */
+    .footer {
+      background: #222;
+      color: #fff;
+      padding: 40px 0 20px 0;
+      margin-top: 0;
+    }
+    .footer .social-icons a {
+      color: #fff;
+      font-size: 1.3rem;
+      margin: 0 10px;
+      transition: color 0.2s;
+    }
+    .footer .social-icons a:hover {
+      color: #ff5e14;
+    }
+    @media (max-width: 767px) {
+      .hero h1 { font-size: 2rem; }
+      .section-title { font-size: 1.5rem; }
+      .about-section, .portfolio-section, .testimonial-section, .blog-section, .contact-section { padding: 40px 0; }
+      .testimonial-card { min-height: 0; }
+    }
+    .animated-title {
+      animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) both;
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-40px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <a class="navbar-brand font-weight-bold" href="#">Create</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1 class="animated-title">Building Brands, <span style="color:#ff5e14;">Inspiring</span> Innovation</h1>
+      <p class="lead">We craft digital experiences that help your business grow and stand out in a crowded world.</p>
+      <a href="#contact" class="btn btn-primary btn-lg mt-3">Start Your Project</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="section-title text-center">Our Features</h2>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=400&h=400&q=80" alt="Creative Ideas" class="feature-img">
+          <h5>Creative Ideas</h5>
+          <p>We bring innovative solutions to your business.</p>
+        </div>
+        <div class="col-md-4">
+          <img src="https://images-platform.99static.com//6-9TiO_RuBL9Ar-HrRhWBkt0PG4=/267x252:868x854/fit-in/500x500/99designs-contests-attachments/159/159906/attachment_159906991" alt="Modern Design Logo" class="feature-img">
+          <h5>Modern Design</h5>
+          <p>Clean, modern and responsive web design.</p>
+        </div>
+        <div class="col-md-4">
+          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=facearea&w=400&h=400&q=80" alt="24/7 Support" class="feature-img">
+          <h5>24/7 Support</h5>
+          <p>We are here to help you anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <style>
+    .feature-modern {
+      position: relative;
+      display: inline-block;
+    }
+    .modern-logo-img {
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      width: 38px;
+      height: 38px;
+      background: #fff;
+      border-radius: 50%;
+      padding: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      border: 2px solid #ff5e14;
+      object-fit: contain;
+    }
+  </style>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80" alt="About Us" class="about-img">
+        </div>
+        <div class="col-lg-6 about-content">
+          <h3>About Our Agency</h3>
+          <p>
+            We are a team of passionate designers, developers, and strategists. Our mission is to deliver creative and effective solutions that help your business grow. With years of experience in the industry, we have worked with clients from all over the world, delivering projects that make a difference.
+          </p>
+          <ul class="list-unstyled mt-4">
+            <li><i class="fas fa-check-circle text-success mr-2"></i> Professional Team</li>
+            <li><i class="fas fa-check-circle text-success mr-2"></i> Creative Solutions</li>
+            <li><i class="fas fa-check-circle text-success mr-2"></i> 100% Client Satisfaction</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-5" id="services">
+    <div class="container">
+      <h2 class="section-title text-center">Our Services</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="service-card text-center">
+            <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+            <h5>Web Design</h5>
+            <p>Modern, responsive, and user-friendly web design for your business.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card text-center">
+            <div class="service-icon"><i class="fas fa-code"></i></div>
+            <h5>Web Development</h5>
+            <p>Robust and scalable web development using the latest technologies.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-card text-center">
+            <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+            <h5>Digital Marketing</h5>
+            <p>Grow your business online with our digital marketing solutions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio-section" id="portfolio">
+    <div class="container">
+      <h2 class="section-title text-center">Our Portfolio</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Portfolio 1" class="portfolio-img">
+          <div class="portfolio-title">Creative Landing Page</div>
+          <div class="portfolio-cat">Web Design</div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Portfolio 2" class="portfolio-img">
+          <div class="portfolio-title">Business Website</div>
+          <div class="portfolio-cat">Development</div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <!-- New image for Marketing Campaign -->
+          <img src="https://youngcompany.com/wp-content/uploads/2018/12/portfolio-integrated-marketing-lotus-walk-outdoor-bus-stop-sign.jpg" alt="Marketing Campaign" class="portfolio-img">
+          <div class="portfolio-title">Marketing Campaign</div>
+          <div class="portfolio-cat">Marketing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonial-section" id="testimonials">
+    <div class="container">
+      <h2 class="section-title text-center">What Our Clients Say</h2>
+      <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="testimonial-card mx-auto">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client 1" class="testimonial-img">
+              <div class="testimonial-name">John Doe</div>
+              <div class="testimonial-role">CEO, Example Inc.</div>
+              <div class="testimonial-quote">
+                "The team at Create Agency delivered a stunning website that exceeded our expectations. Highly recommended!"
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial-card mx-auto">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client 2" class="testimonial-img">
+              <div class="testimonial-name">Jane Smith</div>
+              <div class="testimonial-role">Marketing Lead, Brandify</div>
+              <div class="testimonial-quote">
+                "Professional, creative, and always on time. Our digital presence has never been better."
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial-card mx-auto">
+              <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Client 3" class="testimonial-img">
+              <div class="testimonial-name">Michael Lee</div>
+              <div class="testimonial-role">Founder, StartUp Hub</div>
+              <div class="testimonial-quote">
+                "Their support and expertise helped us launch our product with confidence. Thank you!"
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="blog-section" id="blog">
+    <div class="container">
+      <h2 class="section-title text-center">Latest Blog Posts</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Blog 1" class="blog-img">
+            <div class="blog-content">
+              <div class="blog-meta">Sep 10, 2025 | Web Design</div>
+              <div class="blog-title">5 Tips for a Modern Website</div>
+              <p>Discover the latest trends and tips to keep your website looking fresh and engaging in 2025.</p>
+              <a href="#" class="btn btn-link p-0" style="color:#ff5e14;">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="blog-card">
+            <!-- Added image for "Why Responsive Matters" -->
+            <img src="https://agencyanalytics.com/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fdfcvkz6j859j%2F2IF4HeK5ImTqJtKea6E2NM%2F90f71ab8ffb08efed9156f8f106517af%2Fresponsive-web-design.png&w=1080&q=75" alt="Why Responsive Matters" class="blog-img">
+            <div class="blog-content">
+              <div class="blog-meta">Aug 28, 2025 | Development</div>
+              <div class="blog-title">Why Responsive Matters</div>
+              <p>Learn why responsive design is crucial for your business and how it impacts user experience.</p>
+              <a href="#" class="btn btn-link p-0" style="color:#ff5e14;">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="blog-card">
+            <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Blog 3" class="blog-img">
+            <div class="blog-content">
+              <div class="blog-meta">Aug 15, 2025 | Marketing</div>
+              <div class="blog-title">Boost Your Brand Online</div>
+              <p>Effective digital marketing strategies to help your brand stand out and grow online.</p>
+              <a href="#" class="btn btn-link p-0" style="color:#ff5e14;">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <h2 class="section-title text-center">Contact Us</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-7">
+          <form class="contact-form">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="text" class="form-control" placeholder="Your Name" required>
+              </div>
+              <div class="form-group col-md-6">
+                <input type="email" class="form-control" placeholder="Your Email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="mb-3 social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+      <p>&copy; 2025 Create. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS, jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
